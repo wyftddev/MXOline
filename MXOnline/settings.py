@@ -1,3 +1,4 @@
+#encoding=utf-8
 """
 Django settings for MXOnline project.
 
@@ -16,6 +17,7 @@ import sys
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(os.path.join(BASE_DIR, "apps"))
+sys.path.append(os.path.join(BASE_DIR, "extra_apps"))
 
 
 # Quick-start development settings - unsuitable for production
@@ -42,7 +44,9 @@ INSTALLED_APPS = [
     'operation',
     'organization',
     'course',
-    'users'
+    'users',
+    'xadmin',
+    'crispy_forms',
 ]
 
 
@@ -88,7 +92,10 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': '127.0.0.1',
-        'PORT': 3306
+        'PORT': 3306,
+        # 'OPTIONS': {
+        #        "init_command": "SET foreign_key_checks = 0;",
+        # },
     }
 }
 
@@ -114,16 +121,16 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+#设置语言为汉语
+LANGUAGE_CODE = 'zh-hans'
+#设置时区为上海
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
 USE_L10N = True
-
-USE_TZ = True
+#不使用UTC时间
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
