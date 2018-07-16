@@ -66,7 +66,7 @@ ROOT_URLCONF = 'MXOnline.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -137,6 +137,9 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-
+#配置static文件路径
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
 
 AUTH_USER_MODEL = 'users.UserProfile'
