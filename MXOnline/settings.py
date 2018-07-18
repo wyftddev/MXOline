@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'users',
     'xadmin',
     'crispy_forms',
+    'captcha'
 ]
 
 
